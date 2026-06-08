@@ -1,3 +1,5 @@
+"""Configuration settings and environment checks for the Glance CLI."""
+
 import sys
 from pathlib import Path
 
