@@ -3,6 +3,8 @@ project_instructions.md
 .claude/
 .DS_Store
 tests/.DS_Store
+TUI_Plan.md
+
 
 __pycache__/
 *.py[cod]
