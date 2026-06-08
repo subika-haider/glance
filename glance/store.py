@@ -38,9 +38,11 @@ class Store(Protocol): # defines the interface for the storage system
 
 
 class ChromaStore: # concrete implementation of Store protocol using Chroma
-    def __init__(self) -> None: 
-        CHROMA_DIR.mkdir(parents=True, exist_ok=True)
-        self._client = chromadb.PersistentClient(path=str(CHROMA_DIR)) # run in embedded mode w disk persistence. runs in python runtime and is saved to local directory.
+    def __init__(self, chroma_dir: Path | None = None) -> None:
+        # chroma_dir can be overridden for testing so tests don't touch ~/.local/share/glance
+        dir = chroma_dir or CHROMA_DIR
+        dir.mkdir(parents=True, exist_ok=True)
+        self._client = chromadb.PersistentClient(path=str(dir)) # run in embedded mode w disk persistence. runs in python runtime and is saved to local directory.
         
         # cosine space: distance = 1 - cosine_similarity, so score = 1 - distance.
         # must be set at collection creation; ignored on subsequent get_or_create calls.
