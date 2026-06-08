@@ -4,6 +4,7 @@ Chroma vector store wrapper.
 - `Item`: result returned from a list operation (path, type).
 - `Store`: Protocol defining the storage interface.
 - `ChromaStore`: persistent Chroma-backed implementation of Store.
+- `ChromaStore.clear`: drops and recreates the collection, wiping all indexed data.
 """
 
 from dataclasses import dataclass
@@ -97,3 +98,12 @@ class ChromaStore: # concrete implementation of Store protocol using Chroma
         images = self._col.get(where={"type": "image"})
         texts = self._col.get(where={"type": "text"})
         return {"image": len(images["ids"]), "text": len(texts["ids"])}
+
+    def clear(self) -> None:
+        # drop and recreate the collection — wipes all indexed data.
+        # used by `glance clear`; user must re-run `glance add` to rebuild.
+        self._client.delete_collection(COLLECTION_ITEMS)
+        self._col = self._client.get_or_create_collection(
+            COLLECTION_ITEMS,
+            metadata={"hnsw:space": "cosine"},
+        )
