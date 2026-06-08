@@ -1,0 +1,20 @@
+[project]
+name = "glance"
+version = "0.1.0"
+description = "Unified semantic search CLI for personal files — index text and images, search both with one query."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.12",
+    "rich>=13",
+    "sentence-transformers>=3",
+    "chromadb>=0.5",
+    "Pillow>=10",
+]
+
+[project.scripts]
+glance = "glance.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

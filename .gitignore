@@ -1,0 +1,10 @@
+CLAUDE.md
+project_instructions.md
+.claude/
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+.uv/
