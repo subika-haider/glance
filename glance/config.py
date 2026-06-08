@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 
 # XDG user data dir — separate from the installed package code so the index
@@ -26,3 +27,8 @@ SKIP_DIRS = {".git", "node_modules", "__pycache__", ".venv", ".env", "dist", ".u
 # CLIP's text encoder hard-truncates at 77 tokens; 60/10 gives safe windows with overlap.
 CLIP_CHUNK_TOKENS = 60
 CLIP_CHUNK_OVERLAP = 10
+
+
+def warn_if_windows() -> None:
+    if sys.platform == "win32":
+        print("warning: glance is designed for macOS/Linux. on Windows, use WSL or a Docker container.")
