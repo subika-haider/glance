@@ -1,6 +1,8 @@
 CLAUDE.md
 project_instructions.md
 .claude/
+.DS_Store
+tests/.DS_Store
 
 __pycache__/
 *.py[cod]
