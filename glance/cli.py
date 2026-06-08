@@ -2,8 +2,9 @@
 CLI entry point for glance.
 - Defines all user-facing commands: add, search, ls, rm, status, clear.
 - Uses Typer for command parsing and Rich for output rendering.
-- Embedder and store are lazy-loaded on first use so import is fast and
-  the model download message appears at the right moment.
+- The CLIP model and Chroma store are only created when a command actually needs them
+  (not at startup). This means `glance status` or `glance clear` never trigger a model
+  load — only commands that embed something (add, search) do.
 """
 
 from pathlib import Path
