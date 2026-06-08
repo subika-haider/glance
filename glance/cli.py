@@ -46,9 +46,12 @@ def _get_store():
     return _store
 
 
-@app.callback()
-def _startup() -> None:
+@app.callback(invoke_without_command=True)
+def _startup(ctx: typer.Context) -> None:
     warn_if_windows()
+    if ctx.invoked_subcommand is None:
+        from glance.tui import launch
+        launch()
 
 
 @app.command()

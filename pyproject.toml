@@ -10,6 +10,7 @@ dependencies = [
     "sentence-transformers>=3",
     "chromadb>=0.5",
     "Pillow>=10",
+    "textual>=1.0",
 ]
 
 [project.scripts]
