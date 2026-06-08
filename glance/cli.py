@@ -18,7 +18,6 @@ from rich.table import Table
 from glance.config import (
     DEFAULT_N,
     MIN_IMAGE_SCORE,
-    MIN_TEXT_SCORE,
     STORAGE_DIR,
     warn_if_windows,
 )
@@ -117,7 +116,6 @@ def search(
     n: int = typer.Option(DEFAULT_N, "-n", "--num", help="Number of results."),
     type_filter: Optional[str] = typer.Option(None, "--type", help="Restrict to: image or text."),
     min_image_score: float = typer.Option(MIN_IMAGE_SCORE, "--min-image-score"),
-    min_text_score: float = typer.Option(MIN_TEXT_SCORE, "--min-text-score"),
     no_score: bool = typer.Option(False, "--no-score", help="Hide the score column."),
 ) -> None:
     """Search across all indexed content."""
