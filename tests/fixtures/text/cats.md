@@ -1,0 +1,1 @@
+Cats are obligate carnivores and one of the most popular domestic pets in the world. They are known for their independence, agility, and grooming habits. Domestic cats descended from wildcats and retain many of their hunting instincts, often stalking and pouncing on toys or small prey. Kittens are born with blue eyes that may change color as they mature.
