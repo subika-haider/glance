@@ -9,9 +9,6 @@
 
 **glance** is a cross-modal semantic search CLI for your personal files. It indexes images and text documents into the same embedding space using CLIP, so a single natural-language query searches both at once — no tagging, no metadata, no folders. Just meaning.
 
-<!-- demo gif goes here -->
-![demo](demo.gif)
-
 ---
 
 ## Table of Contents
